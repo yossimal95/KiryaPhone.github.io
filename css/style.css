@@ -1,0 +1,383 @@
+@font-face {
+  font-family: alef;
+  src: url(../font/Alef-Regular.ttf);
+}
+
+:root {
+  --font-main-color: #16383b;
+  --font-gray-color: #5c6262;
+  --white-background-color: #ffffff;
+  --second-background-color: #f8fff3;
+  --third-background-color: #74d82d;
+  --four-background-color: #bcffb3;
+  --five-background-color: #aabfc0;
+  --notice-border-color:#2e5835;
+  --black-rbga: rgba(5, 59, 14, 0.808);
+  --opacity: rgba(5, 59, 14, 0);
+  --orange-border: rgb(253, 202, 106);
+  --orange-white-border: rgb(255, 248, 234);
+}
+
+* {
+  font-family: alef, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: var(--second-background-color);
+  transition: margin-left 0.5s;
+}
+
+.navbar {
+  display: block;
+  width: 100%;
+  background-color: var(--third-background-color);
+  text-align: right;
+  position: fixed;
+  top: 0;
+  background-image: url('../img/LOGO.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% -8px;
+  background-size: 200px;
+}
+
+.info-btn {
+  /* position: relative;
+  top: -10px;
+  left: 0; */
+  position: fixed;
+  top: 67px;
+  left: -3px;
+  font-size: 16pt;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--five-background-color);
+  cursor: pointer;
+  outline: none;
+  font-weight: bolder;
+}
+
+.alert-bg {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-rbga);
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+
+.alert-board {
+  margin-top: 100px !important;
+  background-color: var(--second-background-color);
+  box-shadow: 0px 0px 0px 5px var(--white-background-color);  
+  direction: rtl;
+}
+
+.close-alert-btn {  
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 18pt;
+  border: none;
+  outline: none;
+  color: var(--white-background-color);
+  display: block;
+  margin:  13px auto;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+  color: var(--font-main-color);
+}
+
+/*  כל מה שקשור לנב-בר הנסתר */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: var(--four-background-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 32px 8px 8px;
+  text-decoration: none;
+  text-align: right;
+  direction: rtl;
+  font-size: 25px;
+  color: var(--font-main-color);
+  display: block;
+  white-space: nowrap;
+}
+
+.sidebar a:active {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 40px;
+  margin-right: 50px;
+}
+
+.openbtn {
+  font-size: 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  color: white !important;
+  padding: 10px 15px;
+  border: none;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+
+.tabs {
+  padding-top: 75px;
+  padding-bottom: 100px;
+}
+
+/* אלפון */
+.phonebook-container {
+  width: 100%;
+  height: calc(100% - 63px);
+}
+.phonebook-container h2 {
+  text-align: center;
+  color: var(--font-main-color);
+}
+.search-phone-input {
+  width: 80%;
+  display: block;
+  margin: auto;
+  direction: rtl;
+  font-size: 20pt;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.search-phone-input:focus {
+  border-bottom: 3px solid var(--third-background-color);
+  margin-bottom: -3px;
+  outline: none;
+}
+
+.phonebook-table {
+  padding-top: 20px;
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+.card {
+  margin: auto;
+  width: 100%;
+  background-color: var(--white-background-color);
+  border: 1px solid var(--five-background-color);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.card > div {
+  max-width: 230px;
+  display: block;
+  margin: auto;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.card .name {
+  margin: 0px;
+  text-align: right;
+  direction: rtl;
+  font-size: 15pt;
+  font-weight: bolder;
+  color: var(--font-gray-color);
+}
+
+.card .addres {
+  margin: 0px;
+  text-align: right;
+  direction: rtl;
+  font-size: 10pt;
+  color: var(--font-gray-color);
+}
+
+.card .tel {
+  margin: 0px;
+  text-align: right;
+  direction: rtl;
+  font-size: 12pt;
+}
+
+.tabs {
+  width: 100%;
+  display: none;
+}
+
+.alert {
+  display: none;
+  direction: rtl;
+  width: 70px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: var(--font-main-color);
+  color: white;
+  top: 100px;
+  z-index: 1000003;
+  position: fixed; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+.notice {
+  display: block;
+  margin: auto;
+  direction: rtl;
+  text-align: center;
+  width: 80%;
+  font-size: 14pt;
+  color: var(--font-main-color);
+  border: 3px dashed var(--notice-border-color);
+  border-radius: 15px;
+  padding: 15px;
+  max-height: 90vw;
+  overflow: scroll;
+}
+#general table, .popup-table {
+  direction: rtl;
+  margin: auto;
+  text-align: center;
+  font-size: 13pt;
+}
+
+#general table td, .popup-table td {
+  padding: 7px;
+}
+
+#general table td:first-child, .popup-table td:first-child {
+  font-weight: bold;
+}
+
+
+#general table tr:not(:last-child) td, .popup-table tr:not(:last-child) td{
+  border-bottom: 1px solid var(--font-main-color);
+}
+
+#general table td:not(:last-child), .popup-table td:not(:last-child) {
+  border-left: 1px solid var(--font-main-color);
+}
+
+#general table a, #Contact a, .popup-table a {
+  text-decoration: none;
+  color: #0645AD;
+} 
+
+/* business index */
+
+#business input:focus {
+  border-bottom: 3px solid var(--orange-border);
+  margin-bottom: -3px;
+  outline: none;
+}
+
+#businessTable .card .sec-or-address, #gmachimTable .card .sec-or-address,  #shulsTable .card .sec-or-address {
+  margin: 5px 0px;
+  display: block;
+  text-align: right;
+  direction: rtl;
+  color: var(--font-gray-color);
+}
+.tel-for-business-card {
+  display: inline;
+}
+.business-card-border {
+  cursor: pointer;
+  border-color: var(--orange-border);
+}
+
+.notice-sec-or-address {
+  font-size: 12pt;
+  display: block;
+  text-align: center;
+  direction: rtl;
+  color: var(--font-gray-color);
+}
+
+#gmachim .card {
+  cursor: pointer;
+  border-color: var(--five-background-color);
+}
+
+#gmachim input:focus {
+  border-bottom: 3px solid var(--five-background-color);
+  margin-bottom: -3px;
+  outline: none;
+}
+
+#shulsTable .card {
+  cursor: pointer;
+  border-color: var(--font-gray-color);
+}
+
+/* ADS */
+.sidenav-ad {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  cursor: pointer;
+  border: 3px solid black;
+  border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
+} 
+
+/* scroll bar */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--font-main-color);
+  border-radius: 10px;
+  border: 2px solid var(--white-background-color);  
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/phonebook.js" type="application/javascript"></script>
+    <script src="js/business.js"></script>
+    <script src="js/gmachim.js"></script>
+    <script src="./js/shuls.js"></script>
+    <script src="./js/3.5.1.jquery.min.js" type="application/javascript"></script>
+    <title>Kirya app</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="navbar">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <!-- hidden navbar -->
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="javascript:void(0)" class="menuBtn" tab="phonebook">ספר טלפונים</a>
+      <a href="javascript:void(0)" class="menuBtn" tab="general">מידע כללי</a>
+      <a href="javascript:void(0)" class="menuBtn" tab="business">אינדקס עסקים</a>
+      <a href="javascript:void(0)" class="menuBtn" tab="gmachim">גמחי"ם</a>
+      <a href="javascript:void(0)" style="display: none;" class="menuBtn" tab="shuls">בתי כנסת</a>
+      <a href="javascript:void(0)" class="menuBtn" tab="contact">צור קשר</a>
+      <img class="sidenav-ad" onclick="openAlert('<b>רוצה לפרסם כאן?</b> <br> פנה אלינו בצור קשר!')" src="./ads/sidenav-ad.jpg">      
+    </div>
+
+    <!-- tabs -->
+    <div class="tabs" id="phonebook" style="display: block;">
+      <button id="phonesInfoBtn" class="info-btn">ⓘ</button>
+      <div class="phonebook-container">
+        <h2>ספר טלפונים</h2>
+        <input type="text" id="phoneSearchInput" class="search-phone-input" placeholder="הכנס שם לחיפוש.."  autocomplete="off" />
+  
+        <div class="phonebook-table" id="phonebookTable">
+          <!-- <div class="card">
+            <div>
+              <p class="name">יוסף חיים וחיה שרה מלאך</p>
+              <p class="addres">בלוך 78 כניסה א</p>
+              <p class="tel">0527172787</p>
+  
+              <a href="#">העתק</a>
+              <a href="#">חייג</a>
+            </div>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+    <div class="tabs" id="business">
+      <h2>אינדקס עסקים</h2>
+      <input type="text" id="businessSearchInput" class="search-phone-input" placeholder="הכנס שם עסק לחיפוש.."  autocomplete="off" />
+  
+        <div class="phonebook-table" id="businessTable">
+         
+        </div>
+    </div>
+
+    <div class="tabs" id="general">
+      <h2>מידע כללי</h2>
+
+      <table>
+        <tr>
+          <td>מיקוד קרית יערים</td>
+          <td><a ontouchstart="longPressStart('9083800')" ontouchend="longPressEnd()">9083800</a></td>
+        </tr>
+        <tr>
+          <td>אתר המועצה</td>
+          <td><a href="https://kiryatyearim.muni.il/" ontouchstart="longPressStart('https://kiryatyearim.muni.il/')" ontouchend="longPressEnd()">קישור</a></td>
+        </tr>
+        <tr>
+          <td>אתר חברת תנופה</td>
+          <td><a href="https://www.tnufa-t.com/" ontouchstart="longPressStart('https://www.tnufa-t.com/')" ontouchend="longPressEnd()">קישור</a></td>
+        </tr>       
+      </table>
+
+      <h2>טלפונים חשובים</h2>
+
+      <table>
+        <tr>
+          <td>מועצה מקומית</td>
+          <td><a href="tel:025410000" ontouchstart="longPressStart('025410000')" ontouchend="longPressEnd()">025410000</a></td>
+        </tr>
+        <tr>
+          <td>מאוחדת טלזסטון</td>
+          <td><a href="tel:025341404" ontouchstart="longPressStart('025341404')" ontouchend="longPressEnd()">025341404</a></td>
+        </tr>
+        <tr>
+          <td>מכבי טלזסטון</td>
+          <td><a href="tel:025341005" ontouchstart="longPressStart('025341005')" ontouchend="longPressEnd()">025341005</a></td>
+        </tr>
+        <tr>
+          <td>שירות לקוחות תנופה</td>
+          <td><a href="tel:*8797" style="direction: rtl;" ontouchstart="longPressStart('*8797')" ontouchend="longPressEnd()">*8797</a></td>
+        </tr>
+        <tr>
+          <td>מוקד משרד התחבורה</td>
+          <td><a href="tel:*8787" style="direction: rtl;" ontouchstart="longPressStart('*8787')" ontouchend="longPressEnd()">*8787</a></td>
+        </tr>
+        <tr>
+          <td>כל-קו</td>
+          <td><a href="tel:1700707050" ontouchstart="longPressStart('1700707050')" ontouchend="longPressEnd()">1700707050</a></td>
+        </tr>
+        <tr>
+          <td>ידידים</td>
+          <td><a href="tel:1230" ontouchstart="longPressStart('1230')" ontouchend="longPressEnd()">1230</a></td>
+        </tr>
+        <tr>
+          <td>מוקד עירוני</td>
+          <td><a href="tel:106" ontouchstart="longPressStart('106')" ontouchend="longPressEnd()">106</a></td>
+        </tr>
+        <tr>
+          <td> מוקד עירוני (נייד)</td>
+          <td><a href="tel:*10722" style="direction: rtl;" ontouchstart="longPressStart('*10722')" ontouchend="longPressEnd()">*10722</a></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="tabs" id="gmachim">
+      <h2>גמחי"ם</h2>
+      <input type="text" id="gmachimSearchInput" class="search-phone-input" placeholder='הכנס שם גמ"ח לחיפוש..' autocomplete="off" />
+        <div class="phonebook-table" id="gmachimTable"></div>      
+    </div>
+
+    <div class="tabs" id="shuls">
+      <button class="info-btn shul-info" style="color: rgb(202, 54, 54);">ⓘ</button>
+      <h2>בתי כנסת</h2>
+      <div class="phonebook-table" id="shulsTable"></div>
+    </div>
+
+    <div class="tabs" id="contact">
+      <h2>צור קשר</h2>
+      <p class="notice">הערות? הארות?<br> רוצים להוסיף או לעדכן פרטים? <br> רוצים לפרסם באפליקציה?  <br> מעוניינים להוסיף את העסק שלכם לאינדקס העסקים?<br> נשמח לשמוע מכם במייל:<br><a href="mailto:KiryatYearimapp@gmail.com" ontouchstart="longPressStart('KiryatYearimApp@gmail.com')" ontouchend="longPressEnd()">KiryatYearimApp@gmail.com</a></p>
+    </div>
+
+    <div class="alert">הועתק!</div>
+
+    <div class="alert-bg" onclick="closeAlert();">
+      <div class="notice alert-board" onclick="event.stopPropagation();"></div>
+      <button class="close-alert-btn" onclick="closeAlert();">סגור</button>
+    </div>
+
+    <script src="./js/script.js" type="application/javascript"></script>
+  </body>
+</html>
